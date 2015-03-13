@@ -1,10 +1,7 @@
 package Controller;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import edu.mnscu.acct.ebuilder.FacilityProjectCommitmentChangeRequest;
-import edu.mnscu.acct.ebuilder.FacilityProjectCommitmentChangeRequestList;
-import edu.mnscu.acct.ebuilder.FacilityProjectCommitmentRequest;
-import edu.mnscu.acct.ebuilder.FacilityProjectCommitmentRequestList;
+import edu.mnscu.acct.ebuilder.*;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,11 +45,10 @@ public class FacilitiesController {
         fprl.setStatus("OK");
         if (StringUtils.equalsIgnoreCase(rcId, "0070")) {
             fprl.getFacilityProjectCommitmentRequests().add(new FacilityProjectCommitmentRequest(
-                    "980003", "0070", "", "03/01/2015", "0001234-001", "0001234", "001", "1st Test", "01.5001", 10.00, "2015", "300500"));
-                    //"980003", "0070", "", "03/01/2015", "0001234-001", "0001234", "001", "1st Test", "01.5001", 10.00, "2015", "300500", "5130.03", "CIR - 00013"));
+                    "980003", "0070", "", "03/01/2015", "0001234-001", "0001234", "001", "1st Test", "01.5001", 10.00, "2015", "300500", "5130.03", "CIR - 00013", "CIR", "C13"));
         } else if (StringUtils.equalsIgnoreCase(rcId, "0072")) {
             fprl.getFacilityProjectCommitmentRequests().add(new FacilityProjectCommitmentRequest(
-                    "980003", "0072", "", "03/01/2015", "0001234-001", "0001234", "001", "1st Test", "01.5001", 10.00, "2015", "300500"));
+                    "980003", "0072", "", "03/01/2015", "0001234-001", "0001234", "001", "1st Test", "01.5001", 10.00, "2015", "300500", "5130.03", "CIR - 00013", "CIR", "C13"));
         }
         return fprl;
     }
@@ -65,11 +61,30 @@ public class FacilitiesController {
         FacilityProjectCommitmentChangeRequestList fprl = new FacilityProjectCommitmentChangeRequestList();
         fprl.setStatus("OK");
         if (StringUtils.equalsIgnoreCase(rcId, "0070")) {
-            fprl.getFacilityProjectCommitmentChangeRequests().add(new FacilityProjectCommitmentChangeRequest(
-                    "980003", "0070", "", "03/01/2015", "1st Test", "01.5001", 10.00, "2015", "300500"));
+            fprl.getFacilityProjectCommitmentChangeRequests().add(new FacilityProjectCommitmentChangeRequest("88907", "0070", "U12345", "03/01/2015", "1st Test", 10.00, "2015", "300500",
+                    "01.5001", "CCI - 00004", "CCI",  "1",  "Dave Lund",
+                    "", "0070-9999-875060-2012-GO Bond Debt", "600"));
+
+/*
+            fprl.getFacilityProjectCommitmentChangeRequests().add(new FacilityProjectCommitmentChangeRequestGroovy(
+            [projectId:"980003", rcId:"0070", purchaseOrderNumber:"", occurrenceDate:"03/01/2015",
+            description:"1st Test", objectCode:"01.5001", amount:10.00, fy:"2015", costCenterNbr:"300500",
+            accountCode:"", commitmentNumber:"", prefix:"",  processCounter:"",  previousActor:"",
+            previousActorEmail:"", fundingSource:"", commitmentChangeAmount:0]));
+
+            FacilityProjectCommitmentChangeRequest("980003", "0070", "", "03/01/2015", "1st Test", 10.00, "2015", "300500",
+                        "01.5001", "CCI - 00004", "CCI",  "1",  "Dave Lund",
+                        "", "0070-9999-875060-2012-GO Bond Debt", "600");
+
+            FacilityProjectCommitmentChangeRequestGroovy fpg = new FacilityProjectCommitmentChangeRequestGroovy(
+                    [projectId:"980003", rcId:"0070", purchaseOrderNumber:"", occurrenceDate:"03/01/2015",
+                    description:"1st Test", amount:10.00, fy:"2015", costCenterNbr:"300500",
+                    accountCode:"01.5001", commitmentNumber:"CCI - 00004", prefix:"CCI",  processCounter:"1",  previousActor:"Dave Lund",
+                    previousActorEmail:"", fundingSource:"0070-9999-875060-2012-GO Bond Debt", commitmentChangeAmount:"600"]);
+*/
         } else if (StringUtils.equalsIgnoreCase(rcId, "0072")) {
-            fprl.getFacilityProjectCommitmentChangeRequests().add(new FacilityProjectCommitmentChangeRequest(
-                    "980003", "0072", "", "03/01/2015", "1st Test", "01.5001", 10.00, "2015", "300500"));
+//            fprl.getFacilityProjectCommitmentChangeRequests().add(new FacilityProjectCommitmentChangeRequest(
+  //                  "980003", "0072", "", "03/01/2015", "1st Test", "01.5001", 10.00, "2015", "300500"));
         }
         return fprl;
     }
