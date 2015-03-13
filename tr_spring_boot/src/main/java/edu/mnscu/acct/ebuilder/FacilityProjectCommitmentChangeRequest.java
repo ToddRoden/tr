@@ -80,26 +80,7 @@ public class FacilityProjectCommitmentChangeRequest {
         this.costCenterNbr = costCenterNbr;
     }
 
-    public FacilityProjectCommitmentChangeRequest(String projectId, String rcId, String purchaseOrderNumber, String occurrenceDate, String description, Double amount, String fy, String costCenterNbr, String accountCode, String commitmentNumber, String prefix, String processCounter, String previousActor, String previousActorEmail, String fundingSource, String commitmentChangeAmount) {
-        this.projectId = projectId;
-        this.rcId = rcId;
-        this.purchaseOrderNumber = purchaseOrderNumber;
-        this.occurrenceDate = occurrenceDate;
-        this.description = description;
-        this.amount = amount;
-        this.fy = fy;
-        this.costCenterNbr = costCenterNbr;
-        this.accountCode = accountCode;
-        this.commitmentNumber = commitmentNumber;
-        this.prefix = prefix;
-        this.processCounter = processCounter;
-        this.previousActor = previousActor;
-        this.previousActorEmail = previousActorEmail;
-        this.fundingSource = fundingSource;
-        this.commitmentChangeAmount = commitmentChangeAmount;
-    }
-
-    public String getProjectId() {
+		public String getProjectId() {
 			return projectId;
 		}
 		@JsonProperty("ProjectID")
