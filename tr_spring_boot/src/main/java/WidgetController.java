@@ -1,0 +1,17 @@
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RequestMapping("/api/**")
+@RestController
+public class WidgetController {
+
+    @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+//    @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_XML_VALUE})
+//    @RequestMapping(method = RequestMethod.GET, headers = {"Accept=text/html,application/xhtml+xml,application/xml"}, produces = {MediaType.APPLICATION_XML_VALUE})
+    public Widget index() {
+        return new Widget("green", 10, 7);
+    }
+}
